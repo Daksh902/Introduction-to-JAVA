@@ -1,0 +1,50 @@
+Sort the given unsorted array 'arr' of size 'N' in non-decreasing order using the selection sort algorithm.
+
+
+ Note:
+Change in the input array/list itself. 
+
+
+Example:
+Input:
+N = 5
+arr = {8, 6, 2, 5, 1}
+
+Output:
+1 2 5 6 8 
+Explanation: add-image
+
+Input format :
+First line contains an integer 'N' representing the size of the array/list.
+
+Second line contains 'N' single space separated integers representing the elements in the array/list.
+Output format :
+The output contains the integers of the sorted array, separated by a single space.
+Note:-
+You don’t need to print anything. Just implement the given function.
+
+
+
+public class Solution {  
+
+    public static void selectionSort(int[] arr, int n) {
+    	//Your code goes here
+
+          for(int i=0;i<arr.length-1;i++) 
+        {
+           n=i;
+            for(int j=i+1;j<arr.length;j++)
+            {
+                if(arr[j]<arr[n]) 
+                {
+                    n=j;
+                }
+            }
+
+            int save=arr[i];
+            arr[i]=arr[n];
+            arr[n]=save;
+        }
+    }   
+
+}
