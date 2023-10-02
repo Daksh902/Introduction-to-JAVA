@@ -1,0 +1,61 @@
+You are given an integer array, arr, of size N and a positive integer K. Out of all subarrays of 'arr' of size K, find the sum of the subarray that has the maximum sum.
+Input format:
+The first line of the input contains two space-separated integers, N and K
+The second line contains N space-separated integers which represent the elements of the array, arr
+Output format:
+The output only consists of a single integer, the sum of the subarray that has the maximum sum
+Constraints:
+1 <= N <= 10^6
+1 <= K <= N
+Time limit: 1 sec
+
+
+
+import java.util.Scanner;
+public class Solution {
+   public static int maxSubarraySum(int[] arr, int k) {
+        if (arr == null || arr.length == 0 || k <= 0 || k > arr.length) {
+            return 0;
+        }
+
+        int maxSum = Integer.MIN_VALUE;  // Initialize the maximum sum
+        int currentSum = 0;  // Initialize the current sum
+
+        // Calculate the sum of the first subarray of size K
+        for (int i = 0; i < k; i++) {
+            currentSum += arr[i];
+        }
+
+        maxSum = currentSum;
+
+        // Slide the window to the right and update the sums
+        for (int i = k; i < arr.length; i++) {
+            currentSum = currentSum - arr[i - k] + arr[i];
+            maxSum = Math.max(maxSum, currentSum);
+        }
+
+        return maxSum;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read N and K
+        int n = scanner.nextInt();
+        int k = scanner.nextInt();
+
+        // Read the elements of the array
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        // Calculate the maximum sum of a subarray of size K
+        int maxSum = maxSubarraySum(arr, k);
+
+        // Print the result
+        System.out.println(maxSum);
+
+        scanner.close();
+    }
+}
