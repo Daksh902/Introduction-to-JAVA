@@ -1,0 +1,45 @@
+Write a program to print parallelogram pattern for the given N number of rows.
+For N = 4
+
+
+
+The dots represent spaces.
+Input Format :
+ A single integer : N
+Output Format :
+Required Pattern
+Constraints :
+0 <= N <= 50
+
+
+
+
+import java.util.Scanner;
+public class Main {
+	
+	public static void main(String[] args) {
+		// Write your code here
+      	Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+	
+		int CurrRow = 1;	
+	     while(CurrRow <= n){
+	         int spaces=1;
+	         
+	         while(spaces <= CurrRow-1){
+	             
+	             System.out.print(" ");
+	             spaces=spaces+1;
+	         }
+	         int num = 1;
+	         while(num <= n){
+	             System.out.print("*");
+	             num=num+1;
+	         }
+	         System.out.println();
+	         CurrRow = CurrRow +1 ;
+	         
+	   }
+	    
+	}
+}
