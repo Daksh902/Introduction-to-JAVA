@@ -1,0 +1,32 @@
+You have been given a random integer array/list(ARR) of size N. You are required to find and return the second largest element present in the array/list.
+Input format :
+The first line contains an integer 'N' representing the size of the array/list.
+
+The second line contains 'N' single space separated integers representing the elements in the array/list.
+Output Format :
+Return the second largest element in the array/list.
+Constraints :
+0 <= N <= 10^2
+1<=arr[i]<=10^3
+
+Time Limit: 1 sec
+
+
+
+public class Solution {  
+
+    public static int secondLargestElement(int[] arr, int n) {
+    	  int l = Integer.MIN_VALUE, sl = Integer.MIN_VALUE;
+        for(int i = 0; i<arr.length; i++){
+            if(arr[i]>l){
+                sl = l;
+                l = arr[i];
+            }
+            else if(arr[i]>sl && arr[i] != l){
+                sl = arr[i];
+            }
+        }
+        return sl;
+    }
+
+}
