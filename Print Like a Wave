@@ -1,0 +1,46 @@
+For a given two-dimensional integer array/list of size (N x M), print the array/list in a sine wave order, i.e, print the first column top to bottom, next column bottom to top and so on.
+Input format :
+The first line contains an Integer 't' which denotes the number of test cases or queries to be run. Then the test cases follow.
+
+First line of each test case or query contains two integer values, 'N' and 'M', separated by a single space. They represent the 'rows' and 'columns' respectively, for the two-dimensional array/list.
+
+Second line onwards, the next 'N' lines or rows represent the ith row values.
+
+Each of the ith row constitutes 'M' column values separated by a single space.
+Output format :
+For each test case, print the elements of the two-dimensional array/list in the sine wave order in a single line, separated by a single space.
+
+Output for every test case will be printed in a seperate line.
+Constraints :
+1 <= t <= 10^2
+0 <= N <= 10^3
+0 <= M <= 10^3
+Time Limit: 1sec
+
+
+
+
+public class Solution {
+
+	public static void wavePrint(int mat[][]){
+		
+		 if (mat.length==0)
+            System.exit(0);
+        int p=mat[0].length-1;
+        for (int j = 0; j < mat[0].length ; j++)
+        {
+            for (int i = 0; i < mat.length; i++)
+            {
+                System.out.print(mat[i][j]+" ");
+            }
+            j++;
+            if (j==mat[0].length)
+                System.exit(0);
+            for (int i = mat.length-1; i >= 0; i--)
+            {
+                System.out.print(mat[i][j]+" ");
+            }
+        }
+	}
+
+}
